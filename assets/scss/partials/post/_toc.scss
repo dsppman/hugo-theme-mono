@@ -1,0 +1,39 @@
+// .toc {
+//     position: sticky;
+//     // top: 100px;
+//     // left: 1100px;
+// }
+
+.toc {
+    margin: 0 2px 40px 2px;
+    border: 1px solid vv(border);
+    background-color: vv(theme-bg);
+    @include border-radius(var(--redius));
+    padding: 0.4em;
+    details summary {
+        cursor: zoom-in;
+        margin-inline-start: 20px;
+    }
+
+    details[open] summary {
+        cursor: zoom-out;
+    }
+    
+    .details {
+        display: inline;
+        font-weight: 500;
+    }
+
+    .inner {
+        margin: 0 20px;
+        padding: 10px 20px;
+    }
+
+    li ul {
+        margin-inline-start: var(--gap);
+    }
+
+    summary:focus {
+        outline: 0;
+    }
+}

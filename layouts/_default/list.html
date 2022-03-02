@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="list">
+    {{ $paginator := .Paginate .Pages.ByDate.Reverse 20 }}
+    <!-- {{ len $paginator.Pages }} Total -->
+    {{ range ($paginator.Pages.GroupByDate "2006") }}
+    <section>
+        <h2>
+            {{- .Key -}}<sup>{{ len .Pages }}</sup>
+        </h2>
+        <ul>
+            {{ range .Pages }}
+            {{ .Render "li" }}
+            {{ end }}
+        </ul>
+    </section>
+    {{ end }}
+    {{ partial "list/pagination.html" . }}
+</div>
+{{ end }}

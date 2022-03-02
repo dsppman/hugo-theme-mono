@@ -1,0 +1,19 @@
+.tag-term {
+    @extend %box;
+    li {
+        display: inline-block;
+        margin: 10px;
+        font-weight: 500;
+        a {
+            display: block;
+            padding: 3px 10px;
+            background-color: vv(tertiary);
+            border-radius: 6px;
+            transition: transform .1s;
+            &:active {
+                // background: vv(tertiary);
+                transform: scale(0.96);
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Title -->
+    <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}</title>
+    
+    <!-- Css -->
+    {{ $css := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "main.scss" . | resources.ToCSS }}
+    {{ with resources.GetRemote "https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" }}
+        {{ with .Err }}
+        {{ warnf "%s" . }}
+        {{ else }}
+        {{ $css = slice . $css | resources.Concat "css/main.css" }}
+        {{ end }}
+    {{ end }}
+    {{ if hugo.IsProduction }}
+    {{ $css = $css | minify | fingerprint }}
+    {{ end }}
+    <link rel="stylesheet" href="{{ $css.Permalink }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
+</head>

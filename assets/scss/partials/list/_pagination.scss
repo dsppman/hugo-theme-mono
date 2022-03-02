@@ -1,0 +1,25 @@
+.paginator {
+    text-align   : center;
+    margin-bottom: var(--gap);
+    padding      : var(--gap);
+
+    .current {
+        // padding   : 2px 8px;
+        background-color: vv(paginator);
+        @include border-radius(5px);
+    }
+
+    >* {
+        outline         : 0;
+        border          : 0;
+        background-color: transparent;
+        font-size       : 0.9rem;
+        padding         : 0.5rem 0.75rem;
+        line-height     : 1.25;
+        transition      : background-color 0.2s ease-in-out;
+    }
+
+    >a:hover {
+        @extend .current;
+    }
+}

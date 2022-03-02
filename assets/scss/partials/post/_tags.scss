@@ -1,0 +1,47 @@
+.tags {
+    list-style: none;
+    li {
+        display: inline-block;
+        margin-inline-end: 3px;
+        margin-bottom: 5px;
+        a {
+            display: block;
+            padding-inline-start: 14px;
+            padding-inline-end: 14px;
+            color: vv(secondary);
+
+            @extend %box2;
+
+            &:hover {
+                background-color: vv(border);
+            }
+        }
+    }
+}
+
+// .tags {
+//     list-style: none;
+
+//     li {
+//         display: inline-block;
+
+//         a {
+//             display: inline-block;
+//             padding: 0 12px;
+//             border : solid 1px #333333;
+//             margin : 0 6px 6px 0;
+//             @include transition(all 0.2s);
+
+//             &:visited {
+//                 color: #333333;
+//             }
+
+//             &:hover,
+//             &:focus,
+//             &:active {
+//                 background: #333333;
+//                 color     : white;
+//             }
+//         }
+//     }
+// }

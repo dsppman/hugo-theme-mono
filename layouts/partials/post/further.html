@@ -1,0 +1,16 @@
+<div class="further">
+    {{ with .NextInSection }}
+        <a class="previous" href="{{.Permalink}}">
+            <span class="title">« Prev Page</span>
+            <br>
+            <span>{{- .Title -}}</span>
+        </a>
+    {{ end }}
+    {{ with .PrevInSection }}
+    <a class="next" href="{{.Permalink}}"> 
+        <span class="title">Next Page »</span>
+        <br>
+        <span>{{- .Title -}}</span>
+    </a>
+    {{ end }}
+</div>

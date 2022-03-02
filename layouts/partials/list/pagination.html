@@ -1,0 +1,34 @@
+{{ with .Paginator }}
+    {{ if (gt .TotalPages 1) }}
+        <div class="paginator">
+            {{ with .Prev }}
+            <a href="{{ .URL }}" class="prev">Prev</a>
+            <a href="{{ .First.URL }}">{{ .First.PageNumber }}</a>
+                {{ if (ne .PageNumber .First.PageNumber) }}
+                    {{ if (ne .Prev.PageNumber .First.PageNumber) }}
+                        <span>...</span>
+                    {{ end }}
+                    <a href="{{ .URL }}">{{ .PageNumber }}</a>
+                {{ end }}
+    
+            {{ end }}
+    
+            <span class="current">{{ .PageNumber }}</span>
+    
+            {{ with .Next }}
+    
+                {{ if (ne .PageNumber .Last.PageNumber) }}
+                    <a href="{{ .URL }}">{{ .PageNumber }}</a>
+                    {{ if (ne .Next.PageNumber .Last.PageNumber) }}
+                        <span>...</span>
+                    {{ end }}
+                {{ end }}
+    
+            <a href="{{ .Last.URL }}">{{ .Last.PageNumber }}</a>
+    
+            <a href="{{ .URL }}" class="next">Next</a>
+            {{ end }}
+    
+        </div>
+    {{ end }}
+{{ end }}

@@ -1,0 +1,10 @@
+
+{{ with .GetTerms "categories" }}
+<div class="categories">
+    <span>Fild in</span>
+    {{ range  $i, $v := . }}
+    {{- if gt $i 0 }}, {{ end -}}
+    <a href="{{ $v.Permalink }}" title="{{ $v.LinkTitle }}">{{ $v.LinkTitle }}</a>
+    {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,12 @@
+.list {
+    @extend %box;
+
+    ul {
+        padding: 0;
+        margin : var(--gap);
+        li {
+            line-height: var(--gap);
+            margin: 5px;
+        }
+    }
+}

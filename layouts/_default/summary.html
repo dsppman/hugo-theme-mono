@@ -1,0 +1,10 @@
+<article class="summary">
+    <header>
+        <h2 class="title"><a href="{{.Permalink}}">{{- .Title -}}</a></h2>
+        <div class="byline">Published on <time>{{- .Date.Format "2006-01-02" -}}</time> - {{ .WordCount }} words</div>
+    </header>
+    <div class="content">
+        {{ .Summary }}
+    </div>
+    {{ partial "post/categories.html" . }}
+</article>

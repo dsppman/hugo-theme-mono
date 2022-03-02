@@ -1,0 +1,46 @@
+.single {
+    @extend %box;
+
+    min-width: 200px;
+    // max-width: 980px;
+    margin: 0 auto;
+
+    @import "partials/post/toc";
+
+    .markdown-body {
+        color: var(--content);
+        padding: 7px;
+    }
+
+    @import "extend/github-markdown.css";
+
+    .meta {
+
+        margin: 30px 0 12px 0;
+
+        %mb24 {
+            margin-bottom: var(--gap);
+        }
+
+        @import "partials/post/further";
+
+        .further {
+            @extend %mb24;
+        }
+
+        @import "partials/post/categories";
+
+        .categories {
+            @extend %mb24;
+        }
+
+        @import "partials/post/tags";
+
+        .tags {
+            @extend %mb24;
+            font-size  : 14px;
+            line-height: 34px;
+        }
+
+    }
+}

@@ -1,0 +1,22 @@
+<header class="header">
+    <div id="logo">
+        <a href="/" title="{{ .Site.Title }}">
+            <span class="pre">
+                <i></i>
+            </span>
+            <span>{{ .Site.Title }}</span>
+        </a>
+    </div>
+    <nav id="menu">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+            {{ $type := $.Type }}
+            {{ if eq $type "page" }}
+                {{ $type = $.Name | lower }}
+            {{ end }}
+            <a  href="{{ .URL }}" title="{{ .Title }}"><span {{ if (eq $type .Identifier) }}
+                class="active"
+            {{ end }}>{{ .Name }}</span></a>
+        {{ end }}
+    </nav>
+</header>

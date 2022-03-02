@@ -1,0 +1,107 @@
+$themes: (theme: rgb(255, 255, 255) rgb(29, 30, 32),
+    theme-bg: rgb(245, 245, 245) rgb(29, 30, 32),
+    entry: rgb(255, 255, 255) #0d1117,
+    primary: rgb(30, 30, 30) rgb(218, 218, 219),
+    secondary: rgb(108, 108, 108) rgb(155, 156, 157),
+    tertiary: rgb(214, 214, 214) rgb(65, 66, 68),
+    content: rgb(31, 31, 31) rgb(196, 196, 197),
+    hljs-bg: rgb(28, 29, 33) rgb(46, 46, 51),
+    code-bg: rgb(245, 245, 245) rgb(55, 56, 62),
+    paginator: #EDEDED rgb(46, 46, 51),
+    border: rgb(238, 238, 238) rgb(51, 51, 51));
+
+:root {
+    --gap          : 24px;
+    --content-gap  : 20px;
+    --nav-width    : 1024px;
+    --main-width   : 800px;
+    --header-height: 60px;
+    --entry-height : 320px;
+    --footer-height: 60px;
+    --radius       : 8px;
+}
+
+
+@media (prefers-color-scheme: light) {
+    :root {
+
+        @each $k,
+        $v in $themes {
+            $v: nth($v, 1);
+
+            @if $v !=null {
+                --#{$k}: #{$v};
+            }
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+
+        @each $k,
+        $v in $themes {
+            $v: nth($v, 2);
+
+            @if $v !=null {
+                --#{$k}: #{$v};
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    :root {
+        --gap         : 14px;
+        --entry-height: 260px;
+    }
+
+    /* footer */
+    .footer {
+        padding: calc((var(--footer-height) - var(--gap) - 10px) / 2) var(--gap);
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    /* reset */
+    ::-webkit-scrollbar {
+        width : 19px;
+        height: 11px;
+    }
+}
+
+/* footer */
+// @media screen and (max-width: 900px) {
+//     .list .top-link {
+//         transform: translateY(-5rem);
+//     }
+// }
+
+
+@function vv($var) {
+    @return var(--#{$var});
+}
+
+%box {
+    @include box-shadow(0 0 1.5rem 0 rgba(0, 0, 0, 0.15));
+    @include border-radius(var(--radius));
+    background-color: vv(entry);
+    padding         : var(--gap);
+}
+
+%box2 {
+    border          : 1px solid;
+    border-color    : vv(border);
+    background-color: vv(code-bg);
+    @include border-radius(var(--radius));
+}
+
+@media screen and (min-width: 768px) {
+    ::-webkit-scrollbar {
+        width : 19px;
+        height: 11px
+    }
+}

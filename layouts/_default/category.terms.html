@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="category-term">
+    {{ range .Site.Taxonomies.categories.Alphabetical }}
+    <section>
+        <h2><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a><sup>{{ .Count }}</sup></h2>
+        <ul>
+            {{ range .Pages }}
+                {{ .Render "li" }}
+            {{ end }}
+        </ul>
+    </section>
+    {{ end }}
+</div>
+{{ end }}

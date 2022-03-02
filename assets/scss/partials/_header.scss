@@ -1,0 +1,59 @@
+.header {
+    display        : flex;
+    width          : 100%;
+    justify-content: space-between;
+    flex-wrap      : wrap;
+    line-height: var(--header-height);
+    max-width: calc(var(--nav-width) + var(--gap) * 2);
+    margin : auto;
+    
+
+    %flex {
+        display: flex;
+        margin : auto var(--gap);
+    }
+
+    a {
+        display: block;
+    }
+
+    #logo {
+        @extend %flex;
+        flex-wrap: inherit;
+
+        a {
+            font-size  : 24px;
+            font-weight: 700;
+
+            img {
+                display          : inline;
+                vertical-align   : middle;
+                pointer-events   : none;
+                transform        : translate(0, -10%);
+                border-radius    : 6px;
+                margin-inline-end: 8px;
+            }
+        }
+    }
+
+    #menu {
+        @extend %flex;
+        word-break : keep-all;
+        overflow-x : auto;
+        white-space: nowrap;
+        overflow-x : auto;
+
+        a+a {
+            margin-inline-start:  var(--gap);
+        }
+
+        a {
+            font-size: 16px;
+        }
+
+        .active {
+            font-weight  : 500;
+            border-bottom: 2px solid currentColor;
+        }
+    }
+}

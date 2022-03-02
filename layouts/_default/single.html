@@ -1,0 +1,14 @@
+{{ define "main" }}
+<article class="single">
+    {{ partial "post/toc.html" . }}
+    <section class="markdown-body">
+        {{ .Content }}
+    </section>
+    <footer class="meta">
+        {{ partial "post/categories.html" . }}
+        {{ partial "post/tags.html" . }}
+        {{ partial "post/further.html" . }}
+        {{ partial "post/comments.html" . }}
+    </footer>
+</article>
+{{ end }}
