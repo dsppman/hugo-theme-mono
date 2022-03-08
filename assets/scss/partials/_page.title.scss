@@ -1,22 +1,25 @@
 .entry {
+    text-align: center;
+    margin    : var(--gap) 0 calc(var(--gap) * 2) 0;
+    @include animation(fade-in-bottom .3s both);
+
+    %mb14 {
+        margin-bottom: 14px;
+    }
+
     h1 {
         font-size  : 40px;
         line-height: 1.3;
+        @extend %mb14;
     }
 
-    display        : flex;
-    justify-content: center;
-    align-items    : center;
-    flex-direction : column;
-    min-height     : var(--entry-height);
-    margin: var(--gap) 0 calc(var(--gap) * 2) 0;
-
-    .content {
-        font-size: 14px;
+    span {
+        display    : block;
+        font-style : oblique;
+        font-size  : 14px;
         line-height: 1.6;
-        margin: 14px 0;
-        overflow: hidden;
-        color: vv(secondary);
-        -webkit-line-clamp: 3;
+        color      : vv(secondary);
+        @extend %mb14;
     }
+
 }

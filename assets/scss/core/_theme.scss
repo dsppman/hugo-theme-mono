@@ -1,14 +1,28 @@
-$themes: (theme: rgb(255, 255, 255) rgb(29, 30, 32),
+// $themes: (theme: rgb(255, 255, 255) rgb(29, 30, 32),
+//     theme-bg: rgb(245, 245, 245) rgb(29, 30, 32),
+//     entry: rgb(255, 255, 255) rgb(13, 17, 23),
+//     primary: rgb(30, 30, 30) rgb(218, 218, 219),
+//     secondary: rgb(108, 108, 108) rgb(155, 156, 157),
+//     tertiary: rgb(214, 214, 214) rgb(65, 66, 68),
+//     content: rgb(31, 31, 31) rgb(196, 196, 197),
+//     hljs-bg: rgb(28, 29, 33) rgb(46, 46, 51),
+//     code-bg: rgb(245, 245, 245) rgb(55, 56, 62),
+//     paginator: rgb(237, 237, 237) rgb(46, 46, 51),
+//     border: rgb(238, 238, 238) rgb(51, 51, 51));
+
+$themes: (
+    theme: rgb(255, 255, 255) rgb(29, 30, 32),
     theme-bg: rgb(245, 245, 245) rgb(29, 30, 32),
-    entry: rgb(255, 255, 255) #0d1117,
+    entry: rgb(255, 255, 255) rgb(46, 46, 51),
     primary: rgb(30, 30, 30) rgb(218, 218, 219),
     secondary: rgb(108, 108, 108) rgb(155, 156, 157),
     tertiary: rgb(214, 214, 214) rgb(65, 66, 68),
     content: rgb(31, 31, 31) rgb(196, 196, 197),
     hljs-bg: rgb(28, 29, 33) rgb(46, 46, 51),
     code-bg: rgb(245, 245, 245) rgb(55, 56, 62),
-    paginator: #EDEDED rgb(46, 46, 51),
-    border: rgb(238, 238, 238) rgb(51, 51, 51));
+    paginator: rgb(237, 237, 237) rgb(46, 46, 51),
+    border: rgb(238, 238, 238) rgb(51, 51, 51)
+);
 
 :root {
     --gap          : 24px;
@@ -50,6 +64,10 @@ $themes: (theme: rgb(255, 255, 255) rgb(29, 30, 32),
     }
 }
 
+@function vv($var) {
+    @return var(--#{$var});
+}
+
 @media screen and (max-width: 768px) {
 
     :root {
@@ -73,23 +91,46 @@ $themes: (theme: rgb(255, 255, 255) rgb(29, 30, 32),
     }
 }
 
-/* footer */
-// @media screen and (max-width: 900px) {
-//     .list .top-link {
-//         transform: translateY(-5rem);
-//     }
-// }
+@include keyframes(fade-in-top) {
+    from {
+        opacity  : 0;
+        @include transform(translateY(20px));
+    }
 
+    to {
+        opacity  : 1;
+        @include transform(translateY(0));
+    }
+}
 
-@function vv($var) {
-    @return var(--#{$var});
+@include keyframes(fade-in-bottom) {
+    from {
+        opacity  : 0;
+        @include transform(translateY(-20px));
+    }
+
+    to {
+        opacity  : 1;
+        @include transform(translateY(0));
+    }
 }
 
 %box {
-    @include box-shadow(0 0 1.5rem 0 rgba(0, 0, 0, 0.15));
+    @include box-shadow(0 5px 40px -5px rgba(0, 0, 0, 0.1));
+    // &:hover {
+    //     @include box-shadow(0 0 1.5rem 0 rgba(0, 0, 0, 0.15));
+    // }
     @include border-radius(var(--radius));
     background-color: vv(entry);
     padding         : var(--gap);
+
+
+    @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+            $i: '0.' + ($i + 1);
+            @include animation(fade-in-top .3s #{$i}s backwards);
+        }
+    }
 }
 
 %box2 {
@@ -99,9 +140,6 @@ $themes: (theme: rgb(255, 255, 255) rgb(29, 30, 32),
     @include border-radius(var(--radius));
 }
 
-@media screen and (min-width: 768px) {
-    ::-webkit-scrollbar {
-        width : 19px;
-        height: 11px
-    }
+%mbgap {
+    margin-bottom: var(--gap);
 }

@@ -1,5 +1,10 @@
 {{ define "main" }}
 <article class="single">
+    {{ if not (.Param "disableDate") }}
+        <header>
+            <time datetime={{- .Date.Format "2006-01-02 00:00" -}}>{{- .Date.Format "2006-01-02" -}}</time> · {{ .ReadingTime }} min read 
+        </header>
+    {{ end }}
     {{ partial "post/toc.html" . }}
     <section class="markdown-body">
         {{ .Content }}

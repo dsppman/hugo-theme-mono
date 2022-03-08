@@ -6,31 +6,32 @@
         color: vv(secondary);
     }
 
-    header {
-        .title {
-            font-size  : 24px;
-            line-height: 1.3;
+    %mb12 {
+        margin-bottom: 12px;
+    }
 
-            white-space: nowrap;
-            overflow: hidden;
-        }
+    .title {
+        font-size  : 24px;
+        line-height: 1.3;
 
-        .byline {
-            @extend %summary-color;
-            font-size  : 12px;
-            line-height: 1.5;
-        }
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .byline {
+        @extend %summary-color;
+        font-size  : 12px;
+        line-height: 1.5;
     }
 
     .content {
         margin: 8px 0;
-        // font-size: 16px;
-        // font-weight: 300;
         line-height: 1.6;
         overflow: hidden;
         @extend %summary-color;
     }
 
+    @import "partials/post/tags";
     @import "partials/post/categories";
     // .tags {
     //     font-size: 8px;

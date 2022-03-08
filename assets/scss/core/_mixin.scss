@@ -1,6 +1,5 @@
 @mixin border-radius($value) {
   -webkit-border-radius: $value;
-  -moz-border-radius   : $value;
   border-radius        : $value;
 }
 
@@ -11,23 +10,30 @@
 
 @mixin transition($values...) {
   -webkit-transition: $values;
-  -moz-transition   : $values;
-  -o-transition     : $values;
   transition        : $values;
 }
 
 @mixin transform($value) {
   -webkit-transform: $value;
-  -moz-transform   : $value;
-  -ms-transform    : $value;
-  -o-transform     : $value;
   transform        : $value;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($values...) {
+  -webkit-animation: $values;
+  animation        : $values;
 }
 
 @mixin filter($value) {
   -webkit-filter: $value;
-  -moz-filter   : $value;
-  -ms-filter    : $value;
   filter        : $value;
 }
 

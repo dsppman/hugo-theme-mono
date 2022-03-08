@@ -2,9 +2,15 @@
 
 @import "core/";
 
+
+body,
+html {
+    scroll-behavior: smooth;
+}
+
 html {
     -webkit-tap-highlight-color: transparent;
-    overflow-y: scroll;
+    overflow-y                 : scroll;
 }
 
 body {
@@ -16,9 +22,9 @@ body {
     -webkit-font-smoothing : antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    @include transition(color 0.2s ease-in-out, background-color 0.2s ease-in-out);
     @include overflow-wrap(break-word);
-    overflow-x: hidden;
+    overflow-x      : hidden;
     background-color: vv(theme-bg);
 }
 
@@ -44,25 +50,25 @@ h6 {
 }
 
 img {
-    display: block;
+    display  : block;
     max-width: 100%;
 }
 
 sup {
-    color: vv(secondary);
-    font-size: 70%;
+    color      : vv(secondary);
+    font-size  : 70%;
     margin-left: 5px;
 }
 
 
 ::-webkit-scrollbar-track {
-    background: 0 0;
+    background      : 0 0;
     background-color: vv(theme-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: vv(tertiary);
-    border          : 5px solid;
+    background-color   : vv(tertiary);
+    border             : 5px solid;
     // border-radius   : 8px;
     @include border-radius(var(--radius));
     border-color: vv(theme-bg);
@@ -75,11 +81,11 @@ sup {
 @import "partials/header";
 
 main {
-    margin   : auto;
-    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    margin      : auto;
+    min-height  : calc(100vh - var(--header-height) - var(--footer-height));
     // min-width: 200px;
-    max-width: calc(var(--main-width) + var(--gap) * 2);
-    padding  : var(--gap);
+    max-width   : 860px;
+    padding     : var(--gap);
 
     @import "partials/page.title";
 
@@ -95,3 +101,5 @@ main {
 }
 
 @import "partials/footer";
+
+@import "extend/github-markdown";

@@ -2,12 +2,11 @@
     list-style: none;
     li {
         display: inline-block;
-        margin-inline-end: 3px;
-        margin-bottom: 5px;
         a {
             display: block;
-            padding-inline-start: 14px;
-            padding-inline-end: 14px;
+            // padding-inline-start: 14px;
+            // padding-inline-end: 14px;
+            padding: 0 14px;
             color: vv(secondary);
 
             @extend %box2;
@@ -16,6 +15,9 @@
                 background-color: vv(border);
             }
         }
+    }
+    li+li {
+        margin-left: 3px;
     }
 }
 
